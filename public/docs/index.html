@@ -1,0 +1,224 @@
+<!doctype html>
+<!--[if IE 6 ]>
+<html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Botble - Laravel Avatar</title>
+
+        <meta name="description" content="Document for how to use the skeleton of the new Wordpress theme">
+        <meta name="author" content="Botble">
+        <meta name="copyright" content="Botble">
+        <meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+        <meta name="date" content="2017-01-13T00:00:00+01:00">
+
+        <link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+        <link rel="stylesheet" href="assets/css/highlight.css" media="all">
+        <link rel="stylesheet" href="assets/css/custom.css" media="all">
+        <link href="assets/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery-migrate.js"></script>
+        <script src="assets/js/jquery.scrollTo.js"></script>
+        <script src="assets/js/jquery.easing.js"></script>
+        <script src="assets/js/highlight.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/plugins/jstree/dist/jstree.min.js"></script>
+    </head>
+    <body class="documenter-project-wp-eli-starter-theme">
+        <div id="documenter_sidebar">
+            <a href="#documenter_cover" id="documenter_logo"></a>
+            <ul id="documenter_nav">
+                <li><a class="current" href="#documenter_cover">Introduction</a></li>
+                <li><a href="#installation" title="Installation">Installation</a></li>
+                <li><a href="#upgrade-guide" title="Upgrade Guide">Upgrade Guide</a></li>
+                <li><a href="#screenshots" title="Screenshot">Screenshots</a></li>
+                <li><a href="#changelog" title="Changelog">Changelog</a></li>
+
+            </ul>
+            <div id="documenter_copyright">Copyright &copy; Botble 2017</div>
+        </div>
+        <div id="documenter_content">
+            <section id="documenter_cover">
+                <h1>Botble Laravel Avatar</h1>
+
+                <ul>
+                    <li>Created: 02/15/2017</li>
+                    <li>Latest update: 02/15/2017</li>
+                    <li>By: Botble</li>
+                </ul>
+                <p>Botble Laravel Avatar is used to change profile image in Laravel project, it can works with Laravel 5.x and easy to setup. You will upload and resize avatar easily.</p>
+                <p>If you have problem when install this package or found any bugs, feel free to contact me via email: sangnguyenplus@gmail.com or skype: live:minhsang2603.</p>
+                <p>Thanks for your purchase my product.</p>
+
+                <p>* <strong>Folder Structure</strong></p>
+                <div class="docs-level-1">
+                    <div id="tree_1" class="tree-demo">
+                        <ul>
+                            <li>
+                                <span>config</span>
+                            </li>
+                            <li>
+                                <span>database</span>
+                            </li>
+                            <li>
+                                <span>resources</span>
+                            </li>
+                            <li>
+                                <span>routes</span>
+                            </li>
+                            <li>
+                                <span>src</span>
+                                <ul>
+                                    <li>
+                                        <span>Http</span>
+                                    </li>
+                                    <li>
+                                        <span>Providers</span>
+                                    </li>
+                                    <li>
+                                        <span>Services</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="installation">
+                <div class="page-header"><h3>Installation</h3>
+                    <hr class="notop">
+                </div>
+                <p>Please follow below steps to setup Avatar component in your laravel project.</p>
+
+                <div class="docs-level-1">
+                    <ul>
+                        <li>
+                            <span>Install Laravel 5.x if you don't have exists project: <a href="https://github.com/laravel/laravel" target="_blank">https://github.com/laravel/laravel</a></span>
+                        </li>
+
+                        <li>
+                            <span>Extract file laravel-avatar then copy folder <strong>Component</strong> to /app folder.</span>
+                        </li>
+
+                        <li>
+                            <span>Add below code to psr-4 section of <strong>composer.json</strong>, then run <strong>composer dump-autoload</strong> to re-generate autoload files</span>
+                            <pre>
+                                <code class="php">
+"Botble\\Avatar\\": "app/Components/Avatar/src"
+                                </code>
+                            </pre>
+                            <p>Then it will be look like:</p>
+                            <pre>
+                                <code class="php">
+"psr-4": {
+    "App\\": "app/",
+    "Botble\\Avatar\\": "app/Components/Avatar/src"
+}
+                                </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            <span>Open <strong>/config/app.php</strong> and add AvatarServiceProvider.php to <strong>provider</strong> section.</span>
+                            <pre>
+                                <code class="php">
+'providers' => [
+    ...
+    // After others service providers
+    Botble\Avatar\Providers\AvatarServiceProvider::class,
+],
+                                </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            <span>Create scaffold Laravel Auth if you don't create it yet.</span>
+                            <pre>
+                                <code class="js">
+php artisan make:auth
+                                </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            <span>Export public assets for Avatar component</span>
+                            <pre>
+                                <code class="js">
+php artisan vendor:publish --provider="App\Components\Avatar\Providers\AvatarServiceProvider" --tag=assets
+                                </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            <span>Open your application then go to http://{your-domain}/<strong>profile</strong></span>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <section id="upgrade-guide">
+                <div class="page-header"><h3>Upgrade Guide</h3>
+                    <hr class="notop">
+                </div>
+                <p>When you got a new version of Botble Laravel Avatar from Codecanyon. You just need to do below steps to upgrade it.</p>
+
+                <div class="docs-level-1">
+                    <ul>
+                        <li>
+                            <span>Extract file laravel-avatar then copy folder <strong>Component</strong> to <strong>/app</strong> folder.</span>
+                        </li>
+                        <li>
+                            <span>Update psr-4 autoload section in composer.json</span>
+                            <pre>
+                                <code class="php">
+"Botble\\Avatar\\": "app/Components/Avatar/src"
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            <span>Update public assets for Avatar component. Namespace changed from App\Components\Avatar to <strong>Botble\Avatar</strong></span>
+                            <pre>
+                                <code class="js">
+php artisan vendor:publish --provider="Botble\Avatar\Providers\AvatarServiceProvider" --tag=assets --force
+                                </code>
+                            </pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="screenshots">
+                <div class="page-header"><h3>Screenshots</h3>
+                    <hr class="notop">
+                </div>
+
+                <div class="docs-level-1">
+                    <p><img src="./assets/images/image1.png" alt="Image 1"></p>
+                    <p><img src="./assets/images/image2.png" alt="Image 2"></p>
+                    <p><img src="./assets/images/image3.png" alt="Image 3"></p>
+                </div>
+            </section>
+
+            <section id="changelog">
+                <strong>- 03/06/2017</strong>
+                <ul>
+                    <li>Move source code to namespace <strong>Botble\Avatar</strong></li>
+                    <li>Using autoload psr-4 standard.</li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>
